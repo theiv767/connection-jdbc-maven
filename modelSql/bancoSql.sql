@@ -17,16 +17,6 @@ CREATE TABLE autores (
     genero VARCHAR(255)
 );
 
--- Criação da tabela editoras.
-CREATE TABLE editoras (
-    id int primary key not null auto_increment,
-    nome VARCHAR(255),
-    endereco VARCHAR(255),
-    pais VARCHAR(255),
-    email_contato VARCHAR(255),
-    telefone_contato VARCHAR(255)
-);
-
 -- Criação da tabela de endereços
 CREATE TABLE enderecos(
 	id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -34,6 +24,18 @@ CREATE TABLE enderecos(
     bairro VARCHAR(50),
     rua VARCHAR(50),
     numero VARCHAR(10)    
+);
+
+-- Criação da tabela editoras.
+CREATE TABLE editoras (
+    id int primary key not null auto_increment,
+    nome VARCHAR(255),
+    id_endereco INT,
+    pais VARCHAR(255),
+    email_contato VARCHAR(255),
+    telefone_contato VARCHAR(255),
+    FOREIGN KEY (id_endereco) REFERENCES enderecos(id)
+
 );
 
 -- Criação da tabela livros.
